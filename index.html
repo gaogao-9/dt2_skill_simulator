@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>ダンジョントラベラーズ2 スキルシミュレータ</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/Manager/History.js"></script>
+    <script src="js/IO/DTSim/GetJobSkillLength.js"></script>
+    <script src="js/IO/DTSim/Encode.js"></script>
+    <script src="js/IO/DTSim/Decode.js"></script>
+    <script src="js/index.js"></script>
+  </head>
+  <body>
+    <div id="SimulatorContainer">
+      <h1>ダンジョントラベラーズ2&nbsp;スキルシミュレーター</h1>
+      <header class="row">
+        <div class="historyform col-xs-4">
+          <form>
+            <input class="btn btn-default" type="button" value="←" data-prevbtn>
+            <input class="btn btn-default" type="button" value="→" data-nextbtn>
+          </form>
+        </div>
+        <div class="sdform col-xs-8">
+          <form class="row">
+            <select class="sdselection" data-sdselection>
+              <option value=""></option>
+              <optgroup label="ユーザー定義" data-usersd>
+              </optgroup>
+              <optgroup label="自動保存" data-autosd>
+              </optgroup>
+            </select>
+            <input class="btn btn-primary" type="button" value="保存" data-sdsavebtn>
+            <input class="btn btn-primary" type="button" value="読込" data-sdloadbtn>
+            <input class="btn btn-danger" type="button" value="削除" data-sddeletebtn>
+            <input class="btn btn-primary" type="button" value="変更" data-sdrenamebtn>
+            <input class="btn btn-info" type="button" value="出力" data-sdexportbtn>
+            <input class="btn btn-info" type="button" value="入力" data-sdimportbtn>
+          </form>
+        </div>
+      </header>
+      <ul class="classlist" data-classlist>
+      </ul>
+      <form class="text-center">
+        <input style="width:60%;" type="text" readonly data-tweeturi>
+        <input class="btn btn-info" type="button" data-tweetbtn value="結果をtweetする">
+      </form>
+      <footer class="row">
+        <ul class="list-inline" data-splist>
+          <li>必要SP:<span data-totalsp></span></li>
+          <li>必要Lv:<span data-reqlv></span></li>
+          <li>余りSP:<span data-modsp></span></li>
+          <li>不足ｽｷﾙの素:<span data-reqpow></span></li>
+        </ul>
+        <ul class="list-inline">
+          <li><p>ｽｷﾙの素使用個数</p></li>
+          <li><select data-pownumselection></select></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <!-- 以下template -->
+    <script id="savedataItem" type="text/x-template">
+      <option value="" data-savedata></option>
+    </script>
+    
+    <script id="powderNumItem" type="text/x-template">
+      <option value="" data-powdernum></option>
+    </script>
+    
+    <script id="classListItem" type="text/x-template">
+      <li>
+        <p data-classname></p>
+        <select data-jobselection></select>
+        <ul data-skilltree></ul>
+      </li>
+    </script>
+    
+    <script id="jobSelectionItem" type="text/x-template">
+      <option value="" data-jobname></option>
+    </script>
+    
+    <script id="skillTreeItem" type="text/x-template">
+      <li data-skilltreeitem>
+        <ul class="list-inline">
+          <li data-skillname></li>
+          <li>(<span data-nowlv></span>Lv/<span data-maxlv></span>Lv)</li>
+        </ul>
+        <ul class="list-inline">
+          <li>合計：<span data-totalsp></span>SP</li>
+          <li>次回：<span data-nextsp></span><span data-nextspstr>SP</span></li>
+        </ul>
+        <form>
+          <span><input type="reset" value="R" data-spreset></span>
+          <span data-skillline></span>
+        </form>
+      </li>
+    </script>
+    
+    <script id="skillLineItem" type="text/x-template">
+      <input type="radio" data-value data-skilllineitem>
+    </script>
+    
+    <script id="skillInfo" type="text/x-template">
+      <p>消費TP：<span data-tpcost></span></p>
+      <p data-merit></p>
+      <p data-demerit></p>
+    </script>
+  </body>
+</html>

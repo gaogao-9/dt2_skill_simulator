@@ -1,0 +1,127 @@
+#SimulatorContainer{
+	display: none;
+}
+
+.container{
+	padding: 5px;
+	width: auto;
+}
+
+.row{
+	margin:0;
+}
+
+header.row,footer.row{
+	position:fixed;
+	color: white;
+	width:100%;
+	padding: 0;
+	background-color: rgb(45,80,120);
+}
+
+select{
+	color: black;
+}
+
+header.row{
+	top:0;
+	bottom:auto;
+}
+
+footer.row{
+	top:auto;
+	bottom:0;
+	padding-left:10px;
+}
+
+header.row .historyform form:before{
+	content: " ";
+	height: 100%;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+header.row form{
+	height: 100%;
+}
+
+header.row .historyform{
+	height: 100%;
+	padding:0;
+	text-align: left;
+}
+
+header.row .sdform{
+	padding:0;
+	text-align: right;
+}
+
+header.row .sdform>*{
+	vertical-align: middle;
+}
+
+header.row .sdselection{
+	max-width:150px;
+}
+
+footer ul, footer p{
+	margin: 0;
+}
+
+footer ul{
+	display: inline-block;
+}
+
+footer>ul:nth-of-type(2){
+	float: right;
+}
+
+header.row{
+	height: 80px;
+}
+
+body{
+	margin-top:82px;
+	margin-bottom:42px;
+}
+
+@media screen and (min-width:745px) {
+	header.row{
+		height: 40px;
+	}
+	body{
+		margin-top:42px;
+	}
+}
+
+#SimulatorContainer>ul{
+	display:table;
+	width: 99%;
+	table-layout: fixed;
+}
+#SimulatorContainer>ul>li{
+	display:table-cell;
+}
+
+.classlist{
+	padding: 0;
+}
+
+.classlist p{
+	margin: 0;
+}
+
+.classlist ul{
+	list-style:none;
+	margin: 0;
+	padding: 0;
+}
+
+.classlist ul>li{
+	padding: 0;
+}
+
+
+[data-cloak]{
+	display:none;
+}
